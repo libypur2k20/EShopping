@@ -23,6 +23,13 @@
         "applicationUrl": "http://localhost:49984",
         "sslPort": 44374
       }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
     }
   },
   "iisSettings": {

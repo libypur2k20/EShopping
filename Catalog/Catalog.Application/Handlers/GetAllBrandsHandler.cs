@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Catalog.Application.Mappers;
 using Catalog.Application.Queries;
 using Catalog.Application.Responses;
 using Catalog.Core.Repositories;
@@ -14,19 +15,17 @@ namespace Catalog.Application.Handlers
     public class GetAllBrandsHandler : IRequestHandler<GetAllBrandsQuery, IList<BrandResponse>>
     {
         private readonly IBrandRepository brandRepository;
-        private readonly IMapper mapper;
 
-        public GetAllBrandsHandler(IBrandRepository brandRepository, IMapper mapper)
+        public GetAllBrandsHandler(IBrandRepository brandRepository)
         {
             this.brandRepository = brandRepository;
-            this.mapper = mapper;
         }
 
 
         public async Task<IList<BrandResponse>> Handle(GetAllBrandsQuery request, CancellationToken cancellationToken)
         {
             var brandList = await brandRepository.GetAllBrands();
-            var brandResponseList = mapper.Map<IList<BrandResponse>>(brandList);
+            var brandResponseList = ProductMapping.Mapper.Map<IList<BrandResponse>>(brandList);
             return brandResponseList;
         }
     }

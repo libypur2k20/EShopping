@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.Application.Mappers
 {
-    public class ProductMapping
+    public class ProductMapper
     {
         public static readonly Lazy<IMapper> Lazy = new Lazy<IMapper>(() =>
         {

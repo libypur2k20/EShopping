@@ -1,10 +1,17 @@
-﻿using Catalog.Core.Entities;
-using MongoDB.Bson;
+﻿using Amazon.Runtime.Internal;
+using Catalog.Core.Entities;
+using MediatR;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Catalog.Application.Responses
+namespace Catalog.Application.Commands
 {
-    public class ProductResponse
+    public class UpdateProductCommand : IRequest<bool>
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

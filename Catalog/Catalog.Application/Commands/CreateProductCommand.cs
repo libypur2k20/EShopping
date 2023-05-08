@@ -1,14 +1,19 @@
-﻿using Catalog.Core.Entities;
-using MongoDB.Bson;
+﻿using Amazon.Runtime.Internal;
+using Catalog.Core.Entities;
+using MediatR;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Catalog.Application.Responses;
 
-namespace Catalog.Application.Responses
+namespace Catalog.Application.Commands
 {
-    public class ProductResponse
+    public class CreateProductCommand : IRequest<ProductResponse>
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
 
         [BsonElement("Name")]
         public string Name { get; set; }

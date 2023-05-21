@@ -18,8 +18,8 @@ namespace Catalog.Infrastructure.Data
 
             if (!checkProducts)
             {
-                string path = Path.Combine("Data", "SeedData", "products.json");
-                string rawData = File.ReadAllText(path);
+                string path = Path.Combine("bin", "Debug", "net6.0", "Data", "SeedData", "products.json");
+                string rawData = File.ReadAllText("../Catalog.Infrstructure/Data/SeedData/products.json");
                 IEnumerable<Product> products = JsonSerializer.Deserialize<IEnumerable<Product>>(rawData);
                 
                 if (products.Any())

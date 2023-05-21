@@ -17,9 +17,9 @@ namespace Catalog.Infrastructure.Data
 
             if (!ckeckType)
             {
-                string path = Path.Combine("Data", "SeedData", "types.json");
+                string path = Path.Combine("bin", "Debug", "net6.0", "Data", "SeedData", "types.json");
 
-                string rawTypeData = File.ReadAllText(path);
+                string rawTypeData = File.ReadAllText("../Catalog.Infrstructure/Data/SeedData/types.json");
 
                 IEnumerable<ProductType> types = JsonSerializer.Deserialize<IEnumerable<ProductType>>(rawTypeData);
 

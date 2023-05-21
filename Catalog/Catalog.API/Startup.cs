@@ -46,8 +46,8 @@ namespace Catalog.API
 
             //Package: Automapper.Extensions.Microsoft.DependencyInjection
             services.AddAutoMapper(typeof(Startup));
-            //services.AddMediatR(typeof(CreateProductHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(typeof(CreateProductHandler).GetTypeInfo().Assembly);
+            //services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
             services.AddScoped<ICatalogContext,CatalogContext>();
             services.AddScoped<IProductRepository, ProductRepository>();

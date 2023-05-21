@@ -23,9 +23,9 @@ namespace Catalog.Infrastructure.Data
             MongoClient client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             IMongoDatabase database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
 
-            Brands = database.GetCollection<ProductBrand>(configuration.GetValue<string>("DatabaseSettings.BrandsCollection"));
-            Types = database.GetCollection<ProductType>(configuration.GetValue<string>("DatabaseSettings.TypesCollection"));
-            Products = database.GetCollection<Product>(configuration.GetValue<string>("DatabaseSettings.CollectionName"));
+            Brands = database.GetCollection<ProductBrand>(configuration.GetValue<string>("DatabaseSettings:BrandsCollection"));
+            Types = database.GetCollection<ProductType>(configuration.GetValue<string>("DatabaseSettings:TypesCollection"));
+            Products = database.GetCollection<Product>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
 
             BrandContextSeed.SeedData(Brands);
             TypeContextSeed.SeedData(Types);

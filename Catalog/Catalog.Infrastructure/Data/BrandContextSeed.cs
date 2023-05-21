@@ -17,9 +17,9 @@ namespace Catalog.Infrastructure.Data
 
             if (!ckeckBrands)
             {
-                string path = Path.Combine("Data", "SeedData", "brands.json");
+               string path = Path.Combine("bin", "Debug", "net6.0", "Data", "SeedData", "brands.json");
 
-                string rawBrandData = File.ReadAllText(path);
+                string rawBrandData = File.ReadAllText("../Catalog.Infrstructure/Data/SeedData/brands.json");
 
                 IEnumerable<ProductBrand> brands = JsonSerializer.Deserialize<IEnumerable<ProductBrand>>(rawBrandData);
 
